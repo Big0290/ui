@@ -1,19 +1,11 @@
+import { Provider, SupabaseClient } from '@supabase/supabase-js'
 import React, { useEffect, useRef, useState } from 'react'
-import { SupabaseClient, Provider } from '@supabase/supabase-js'
 import {
-  Input,
-  Checkbox,
-  Button,
-  Space,
-  Typography,
-  Divider,
-  IconKey,
-  IconMail,
-  IconInbox,
-  IconLock,
+  Button, Checkbox, Divider, IconInbox, IconKey, IconLock, IconMail, Input, Space,
+  Typography
 } from './../../index'
-import { UserContextProvider, useUser } from './UserContext'
 import * as SocialIcons from './Icons'
+import { UserContextProvider, useUser } from './UserContext'
 // @ts-ignore
 import AuthStyles from './Auth.module.css'
 
@@ -216,7 +208,7 @@ function SocialAuth({
 
   const handleProviderSignIn = async (provider: Provider) => {
     setLoading(true)
-    const { error } = await supabaseClient.auth.signIn(
+    const { error } = await supabaseClient.auth.signInWithPassword(
       { provider },
       { redirectTo }
     )

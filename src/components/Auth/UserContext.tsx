@@ -1,5 +1,5 @@
-import React, { useEffect, useState, createContext, useContext } from 'react'
-import { SupabaseClient, Session, User } from '@supabase/supabase-js'
+import { Session, SupabaseClient, User } from '@supabase/supabase-js'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 export interface AuthSession {
   user: User | null
